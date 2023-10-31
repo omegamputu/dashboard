@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CategoryResource\Pages;
+namespace App\Filament\Resources\PermissionResource\Pages;
 
-use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\PermissionResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditCategory extends EditRecord
+class EditPermission extends EditRecord
 {
-    protected static string $resource = CategoryResource::class;
+    protected static string $resource = PermissionResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -24,6 +24,6 @@ class EditCategory extends EditRecord
 
     protected function getSavedNotificationTitle(): ?string
     {
-        return 'Category updated';
+        return 'Permission updated';
     }
 }
