@@ -14,7 +14,7 @@ class PermissionPolicy
     public function viewAny(User $user): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('create permissions') ? true : false;
     }
 
     /**
@@ -23,7 +23,7 @@ class PermissionPolicy
     public function view(User $user, Permission $permission): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('create permissions') ? true : false;
     }
 
     /**
@@ -32,7 +32,7 @@ class PermissionPolicy
     public function create(User $user): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('create permissions') ? true : false;
     }
 
     /**
@@ -41,7 +41,7 @@ class PermissionPolicy
     public function update(User $user, Permission $permission): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('edit permissions') ? true : false;
     }
 
     /**
@@ -50,7 +50,7 @@ class PermissionPolicy
     public function delete(User $user, Permission $permission): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('delete permissions') ? true : false;
     }
 
     /**
@@ -59,15 +59,7 @@ class PermissionPolicy
     public function restore(User $user, Permission $permission): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('restore permissions') ? true : false;
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Permission $permission): bool
-    {
-        //
-        return $user->hasRole('Admin');
-    }
 }

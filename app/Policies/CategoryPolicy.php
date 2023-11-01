@@ -2,10 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class UserPolicy
+class CategoryPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -13,16 +14,16 @@ class UserPolicy
     public function viewAny(User $user): bool
     {
         //
-        return $user->hasPermissionTo('view users');
+        return $user->hasPermissionTo('view categories');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user): bool
+    public function view(User $user, Category $category): bool
     {
         //
-        return $user->hasPermissionTo('view users');
+        return $user->hasPermissionTo('view categories');
     }
 
     /**
@@ -31,33 +32,34 @@ class UserPolicy
     public function create(User $user): bool
     {
         //
-        return $user->hasPermissionTo('create users');
+        return $user->hasPermissionTo('create categories');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user): bool
+    public function update(User $user, Category $category): bool
     {
         //
-        return $user->hasPermissionTo('edit users');
+        return $user->hasPermissionTo('edit categories');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user): bool
+    public function delete(User $user, Category $category): bool
     {
         //
-        return $user->hasPermissionTo('delete users');
+        return $user->hasPermissionTo('delete categories');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user): bool
+    public function restore(User $user, Category $category): bool
     {
         //
-        return $user->hasPermissionTo('restore users');
+        return $user->hasPermissionTo('restore categories');
     }
+
 }

@@ -14,7 +14,7 @@ class RolePolicy
     public function viewAny(User $user): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('view roles');
     }
 
     /**
@@ -23,7 +23,7 @@ class RolePolicy
     public function view(User $user, Role $role): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('view roles');
     }
 
     /**
@@ -32,7 +32,7 @@ class RolePolicy
     public function create(User $user): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('create roles');
     }
 
     /**
@@ -41,7 +41,7 @@ class RolePolicy
     public function update(User $user, Role $role): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('edit roles');
     }
 
     /**
@@ -50,7 +50,7 @@ class RolePolicy
     public function delete(User $user, Role $role): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('delete roles');
     }
 
     /**
@@ -59,15 +59,7 @@ class RolePolicy
     public function restore(User $user, Role $role): bool
     {
         //
-        return $user->hasRole('Admin');
+        return $user->hasPermissionTo('restore roles');
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Role $role): bool
-    {
-        //
-        return $user->hasRole('Admin');
-    }
 }
